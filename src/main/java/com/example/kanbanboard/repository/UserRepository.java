@@ -1,7 +1,10 @@
 package com.example.kanbanboard.repository;
 
-import com.example.kanbanboard.model.User;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.example.kanbanboard.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends MongoRepository<User, String> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findByEmail(String email);
 }
